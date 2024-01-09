@@ -33,7 +33,7 @@ A series of SQL queries have been developed to perform various analyses on the I
 
 The Indian Railways SQL Project provides a comprehensive analysis of the railway system through the lens of a well-structured database and insightful SQL queries. By examining various aspects such as train schedules, distances, travel times, and stops, we gain valuable insights into the functioning of the Indian Railways.
 
-The database, named `Indian_Railways`, is designed to store essential information about trains and their schedules. The SQL queries developed for this project enable users to explore and analyze different facets of the data, providing a deeper understanding of the railway operations.
+The database, named [Indian_Railways](https://github.com/DilawarALi1300/Indian-Railway-Management-project/blob/main/Indian%20Railways%20Management.sql), is designed to store essential information about trains and their schedules. The SQL queries developed for this project enable users to explore and analyze different facets of the data, providing a deeper understanding of the railway operations.
 
 Throughout the project, we addressed diverse questions, including the total number of trains, average distances traveled, trains covering the maximum distance, and the most common routes based on source and destination stations. These analyses offer stakeholders, railway operators, and enthusiasts a valuable resource for making informed decisions, optimizing operations, and understanding the dynamics of the Indian Railways system.
 
