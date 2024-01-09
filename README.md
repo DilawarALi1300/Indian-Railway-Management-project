@@ -98,6 +98,7 @@ GROUP BY ti.Source_Station_Name, ti.Destination_Station_Name
 ORDER BY Frequency DESC LIMIT 5;`
 <img width="277" alt="image" src="https://github.com/DilawarALi1300/Indian-Railways-Management-project/assets/155839093/27f4863a-064e-45fb-8bd8-833bf19dfca3">
 
+for More Queries [India_Railways_Managment.SQL](https://github.com/DilawarALi1300/Indian-Railways-Management-project/blob/main/Indian%20Railways%20Management.sql)
 
 # Conclusion
 
