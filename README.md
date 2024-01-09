@@ -38,3 +38,11 @@ The database, named [Indian_Railways](https://github.com/DilawarALi1300/Indian-R
 Throughout the project, we addressed diverse questions, including the total number of trains, average distances traveled, trains covering the maximum distance, and the most common routes based on source and destination stations. These analyses offer stakeholders, railway operators, and enthusiasts a valuable resource for making informed decisions, optimizing operations, and understanding the dynamics of the Indian Railways system.
 
 As the project evolves, there is room for further exploration, improvement, and contribution. Whether for academic purposes, operational enhancements, or simply out of curiosity, the Indian Railways SQL Project stands as a foundation for ongoing discussions, analyses, and advancements within the realm of railway management and analytics.
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues, submit pull requests, or provide suggestions for improvement. Your input is valuable in making this project better.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/license/mit/). Feel free to use, modify, and distribute the code for your own projects.
