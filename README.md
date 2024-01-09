@@ -18,16 +18,63 @@ A series of SQL queries have been developed to perform various analyses on the I
 
 ## Questions Explored
 
-1.  Total number of unique stations.
-2.  Total number of trains in the database.
-3.  Trains covering the maximum distance.
-4.  Average distance traveled by each train.
-5.  Trains with the longest travel time.
-6.  Number of trains passing through each station.
-7.  Average percentage of stops at each station for a given train.
-8.  Trains with the highest number of stops.
-9.  Total travel time for each train.
-10.  Most common routes based on source and destination stations.
+1.  **Total number of unique stations.**
+    `SELECT DISTINCT Station_Name FROM Train_Schedule;` 
+    
+2.  **Total number of trains in the database.**
+    `SELECT DISTINCT COUNT(Train_name) AS Total_Trains FROM Train_info;` 
+    
+3.  **Trains covering the maximum distance.**
+    `SELECT Train_info.Train_Name, Train_schedule.Train_No, MAX(Train_schedule.Distance) AS Max_Distance
+    FROM Train_schedule
+    JOIN Train_info ON Train_schedule.Train_no = Train_info.Train_no 
+    GROUP BY Train_info.Train_Name, Train_schedule.Train_no 
+    ORDER BY Max_distance DESC LIMIT 10;` 
+    
+4.  **Average distance traveled by each train.**
+    `SELECT Train_info.Train_Name, Train_schedule.Train_No, AVG(Train_schedule.Distance) AS Avg_Distance
+    FROM Train_schedule
+    JOIN Train_info ON Train_schedule.Train_no = Train_info.Train_no 
+    GROUP BY Train_info.Train_Name, Train_schedule.Train_no;` 
+    
+5.  **Trains with the longest travel time.**   
+    `SELECT ts.Train_No, ti.Train_Name, MAX(TIMEDIFF(ts.Arrival_time, ts.Departure_Time)) AS MaxTravelTime
+    FROM Train_Schedule ts
+    JOIN Train_info ti ON ts.Train_No = ti.Train_No
+    WHERE ts.Arrival_time IS NOT NULL AND ts.Departure_Time IS NOT NULL
+    GROUP BY ts.Train_No, ti.Train_Name
+    ORDER BY MaxTravelTime DESC LIMIT 5;` 
+    
+6.  **Number of trains passing through each station.**    
+    `SELECT Station_Name, COUNT(DISTINCT Train_No) AS TrainsCount
+    FROM Train_Schedule
+    GROUP BY Station_Name;` 
+    
+7.  **Average percentage of stops at each station for a given train.**  
+    `SELECT ts.Train_No, ti.Train_Name, 100 * COUNT(DISTINCT ts.Station_Code) / COUNT(*) AS Percentage_of_Stops
+    FROM Train_Schedule ts
+    JOIN Train_info ti ON ts.Train_No = ti.Train_No
+    GROUP BY ts.Train_No, ti.Train_Name;` 
+    
+8.  **Trains with the highest number of stops.**
+    `SELECT Train_Schedule.Train_no, Train_info.Train_Name, COUNT(*) AS NumberOfStops
+    FROM Train_Schedule
+    JOIN Train_info ON Train_Schedule.Train_no = Train_info.Train_no
+    GROUP BY Train_Schedule.Train_No, Train_info.Train_Name
+    ORDER BY NumberOfStops DESC LIMIT 5;` 
+    
+9.  **Total travel time for each train.**  
+    `SELECT Train_info.Train_No, Train_info.Train_Name, SUM(TIMEDIFF(Train_Schedule.Arrival_time, Train_Schedule.Departure_Time)) AS Total_Travel_Time
+    FROM Train_Schedule
+    JOIN Train_info ON Train_Schedule.Train_No = Train_info.Train_No
+    WHERE Train_Schedule.Arrival_time IS NOT NULL AND Train_Schedule.Departure_Time IS NOT NULL
+    GROUP BY Train_info.Train_No, Train_info.Train_Name;` 
+    
+10.  **Most common routes based on source and destination stations.**
+`SELECT ti.Source_Station_Name, ti.Destination_Station_Name, COUNT(*) AS Frequency
+FROM Train_info ti
+GROUP BY ti.Source_Station_Name, ti.Destination_Station_Name
+ORDER BY Frequency DESC LIMIT 5;`
 
 # Conclusion
 
@@ -35,7 +82,7 @@ The Indian Railways SQL Project provides a comprehensive analysis of the railway
 
 The database, named [Indian_Railways](https://github.com/DilawarALi1300/Indian-Railway-Management-project/blob/main/Indian%20Railways%20Management.sql), is designed to store essential information about trains and their schedules. The SQL queries developed for this project enable users to explore and analyze different facets of the data, providing a deeper understanding of the railway operations.
 
-Throughout the project, we addressed diverse questions, including the total number of trains, average distances traveled, trains covering the maximum distance, and the most common routes based on source and destination stations. These analyses offer stakeholders, railway operators, and enthusiasts a valuable resource for making informed decisions, optimizing operations, and understanding the dynamics of the Indian Railways system.
+Throughout the project, I addressed diverse questions, including the total number of trains, average distances traveled, trains covering the maximum distance, and the most common routes based on source and destination stations. These analyses offer stakeholders, railway operators, and enthusiasts a valuable resource for making informed decisions, optimizing operations, and understanding the dynamics of the Indian Railways system.
 
 As the project evolves, there is room for further exploration, improvement, and contribution. Whether for academic purposes, operational enhancements, or simply out of curiosity, the Indian Railways SQL Project stands as a foundation for ongoing discussions, analyses, and advancements within the realm of railway management and analytics.
 
