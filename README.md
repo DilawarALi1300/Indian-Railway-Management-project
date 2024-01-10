@@ -5,7 +5,7 @@
 ## **Description:**
 
 The Indian Train Schedule and Information System is a comprehensive database project designed to manage and analyze information related to train schedules, stations, and details about various trains. This project is particularly useful for railway systems, allowing them to efficiently organize and retrieve essential information for both operational and analytical purposes
-## Data Base Used : 
+## DataBase Used : 
 [1:Train_info](https://github.com/DilawarALi1300/Indian-Railway-Management-project/blob/main/train_info.csv) : Contains information about trains, including train number, name, source station, and destination station.
 
 [2:Train_schedule](https://github.com/DilawarALi1300/Indian-Railway-Management-project/blob/main/train_schedule.csv):Stores details about the schedule for each train, including arrival and departure times, distances, and days of operation.
